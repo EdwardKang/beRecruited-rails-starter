@@ -1,6 +1,7 @@
 class Favorite < ActiveRecord::Base
-  # TODO: Define the relationship to users and/or teams
-
+  belongs_to :team
+  belongs_to :user
+  
   def self.top(team, limit = TOP_LIMIT)
     # TODO: Given a team, return the top n users
   end

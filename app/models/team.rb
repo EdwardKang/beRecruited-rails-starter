@@ -1,3 +1,4 @@
 class Team < ActiveRecord::Base
-  # TODO: Define the relationship to users and/or favorites
+  has_many :favorites
+  has_many :users, through: :favorites
 end

@@ -1,0 +1,5 @@
+<% if @team %>
+	<%= render "layouts/leaderboard_data", leaders: @leaders, team: @team %>
+<% else %>
+	<%= render "layouts/no_team" %>
+<% end %>

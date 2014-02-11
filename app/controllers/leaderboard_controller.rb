@@ -17,6 +17,9 @@ class LeaderboardController < ApplicationController
       else
         render partial: "layouts/no_team" 
       end
+      
+    else
+      render :leaderboard
     end
   end
 end

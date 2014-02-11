@@ -12,7 +12,11 @@ class LeaderboardController < ApplicationController
     end
     
     if request.xhr?
-      render partial: "layouts/leaderboard_data", locals: { leaders: @leaders, team: @team }
+      if @team
+        render partial: "layouts/leaderboard_data", locals: { leaders: @leaders, team: @team }
+      else
+        render partial: "layouts/no_team" 
+      end
     end
   end
 end

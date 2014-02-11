@@ -1,6 +1,4 @@
 class Favorite < ActiveRecord::Base
-  attr_accessible :current_amount, :last_week_amount
-    
   belongs_to(
     :team,
     foreign_key: :team_api_id,
@@ -13,14 +11,10 @@ class Favorite < ActiveRecord::Base
   )
   
   def self.top(team, limit = 5)
-    teams_top_favorites = Favorite.top_favorites(team, limit)
+    teams_top_favorite = team.favorites.includes(:user).order('current_amount DESC').limit(limit)
   
-    teams_top_favorites.map do |favorite|
+    teams_top_favorite.map do |favorite|
       favorite.user
     end
-  end
-  
-  def self.top_favorites(team, limit)
-    team.favorites.includes(:user).order('current_amount DESC').limit(limit)
   end
 end

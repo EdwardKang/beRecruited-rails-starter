@@ -1,0 +1,19 @@
+<h1 class="table-header"><%= team.nickname + " Leaderboard" %> </h1>
+
+<table>
+	<tr>
+	  <th>Name</th>
+	  <th>This Week's Points</th>
+	  <th>Last Week's Points</th>
+	</tr>
+
+	<% leaders.each do |leader| %>
+		<% favorite = leader.favorite %>
+
+		<tr>
+			<th><%= leader.first_name + leader.last_name %></th>
+			<th><%= favorite.current_amount %></th>
+			<th><%= favorite.last_week_amount %></th>
+		</tr>
+	<% end %>
+</table>

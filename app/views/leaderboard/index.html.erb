@@ -1,25 +1,18 @@
 <div id="main">
-	<form action="<%= root_url %>" method="get" data-remote="true" id="team-select">
-		<select name="team_name" id="team_name">
+	<form action="<%= leaderboard_url %>" method="get" data-remote="true" id="team-select">
+		<select name="team" id="team_name">
 			<option selected="selected" value="">Team Name</option>
 			
 			<% @teams.each do |team| %>
-				<option value="<% team %>"><%= team.nickname %></option>
+				<option value="<%= team.nickname %>"><%= team.nickname %></option>
 			<% end %>
 			
 		</select>
 	
 		<input type="submit" value="Select">
 	</form>
-	
-  <h1>&lt; Insert Team Here &gt; Leaderboard</h1>
-   <table>
-    <tr>
-      <th>Name</th>
-      <th>This Week's Points</th>
-      <th>Last Week's Points</th>
-    </tr>
-  </table>
+	  
+	<div class="table">
+		<h3>Select a Team</h3>
+	</div> 
 </div>
-
-

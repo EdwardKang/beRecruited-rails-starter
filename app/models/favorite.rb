@@ -1,4 +1,8 @@
 class Favorite < ActiveRecord::Base
+  validates_presence_of :user_api_id, :team_api_id, :current_amount, :last_week_amount
+  
+  validates_uniqueness_of :user_api_id
+  
   belongs_to(
     :team,
     foreign_key: :team_api_id,

@@ -1,4 +1,7 @@
 class Team < ActiveRecord::Base
+  validates_presence_of :team_api_id, :nickname
+  validates_uniqueness_of :team_api_id, :nickname
+  
   before_create :fix_address
   
   has_many(

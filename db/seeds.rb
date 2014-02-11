@@ -12,7 +12,7 @@ user_objects.each do |user|
 end
 
 team_objects.each do |team|
-  Team.create(team_api_id: team['team']['id'], location: team['team']['city'], nickname: team['team']['nick'])
+  Team.create(team_api_id: team['team']['id'], location: team['team']['address'], nickname: team['team']['nick'])
 end
 
 favorite_objects.each do |favorite|

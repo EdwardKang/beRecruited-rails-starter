@@ -12,18 +12,15 @@ class Favorite < ActiveRecord::Base
     primary_key: :user_api_id
   )
   
-  def self.top(team, limit = 10)
-    # TODO: Given a team, return the top n users
+  def self.top(team, limit = 5)
     teams_top_favorites = Favorite.top_favorites(team, limit)
   
     teams_top_favorites.map do |favorite|
-      User.find_by_user_api_id(favorite.user_api_id)
+      favorite.user
     end
   end
   
   def self.top_favorites(team, limit)
-    team_id = Team.find_by_nickname(team).team_api_id
-    
-    Favorite.includes(:user_api_id).where(team_api_id: team_id).order('current_amount DESC').limit(limit)
+    team.favorites.includes(:user).order('current_amount DESC').limit(limit)
   end
 end

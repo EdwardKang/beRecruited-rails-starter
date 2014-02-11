@@ -1,12 +1,19 @@
 <div id="main">
+	<form action="<%= root_url %>" method="get" data-remote="true" id="team-select">
+		<select name="team_name" id="team_name">
+			<option selected="selected" value="">Team Name</option>
+			
+			<% @teams.each do |team| %>
+				<option value="<% team %>"><%= team.nickname %></option>
+			<% end %>
+			
+		</select>
+	
+		<input type="submit" value="Select">
+	</form>
+	
   <h1>&lt; Insert Team Here &gt; Leaderboard</h1>
-
-  <%# TODO: Remove this placeholder text! %>
-  <p>Welcome to the beRecruited challenge!</p>
-  <p>Populate this leaderboard from the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> API here: <a href="http://br-interview-api.heroku.com">http://br-interview-api.heroku.com</a></p>
-    
-  <%# TODO: Populate the rows in this table with data from http://br-interview-api.heroku.com %>
-  <table>
+   <table>
     <tr>
       <th>Name</th>
       <th>This Week's Points</th>
@@ -14,4 +21,5 @@
     </tr>
   </table>
 </div>
+
 

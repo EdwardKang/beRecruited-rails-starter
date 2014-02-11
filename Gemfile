@@ -5,6 +5,7 @@ gem 'rails', '3.2.15'
 gem 'pg'
 gem 'json'
 gem 'rest-client'
+gem 'jquery-rails'
 
 #asset requirements
 group :assets do
